@@ -832,7 +832,7 @@ export default class EditorCore extends Component {
         var fIcon = pIcons.find(ic=> ic.name === state.icon);
         if(fIcon && fIcon.onIconClick)
           fIcon.onIconClick({
-            editarea, 
+            editarea,
             root,
             offsetPosition,
             state,
@@ -957,12 +957,12 @@ export default class EditorCore extends Component {
     let editarea = ReactDOM.findDOMNode(this.refs.editarea);
     editarea.focus();
   }
-  // render functions  
+  // render functions
   renderEditArea() {
     let showHtml = this.state.editorState.showHtml;
     if (showHtml) {
       return (
-        <EditorTextArea ref="editarea" onChange={this.handleChange.bind(this)} />)
+        <EditorTextArea ref="editarea" onChange={this.handleChange.bind(this)} onInput={this.props.onInput}/>)
     } else {
       return (
         <EditorContentEditableDiv
@@ -1063,7 +1063,7 @@ export default class EditorCore extends Component {
           {
             pIcons.filter(ic=>ic.component).map(ic=>{
               const Com = ic.component;
-              return <Com 
+              return <Com
                 hidden={ _icons.indexOf(ic.name) ==-1}
                 ref={(com)=> this.iconComponetMap[ic.name] = com}
                 {...ic.props}

@@ -30,6 +30,6 @@ export default class EditorTextArea  extends Component{
 		}
 	}
 	render(){
-		return (<textarea ref="root" className="editor-textarea" value={this.state.content} onChange={this.handleChange.bind(this)} ></textarea>)
+		return (<textarea ref="root" className="editor-textarea" value={this.state.content} onChange={this.handleChange.bind(this)} onInput={this.props.onInput}></textarea>)
 	}
 }
