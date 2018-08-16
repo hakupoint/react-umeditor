@@ -115,7 +115,10 @@ export default class EditorContentEditableDiv extends React.Component{
 							EditorSelection.range = null;
 						}
 					}}
-					contentEditable={true}
+					contentEditable={!this.props.readonly}
+					style={{
+						height: this.props.height
+					}}
 					dangerouslySetInnerHTML={{__html:this.state.content}}/>
 			</div>)
 	}

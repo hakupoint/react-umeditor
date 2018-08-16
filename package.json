@@ -1,6 +1,6 @@
 {
-  "name": "react-umeditor",
-  "version": "1.0.1",
+  "name": "react-umeditor-good",
+  "version": "1.0.2",
   "description": "React Editor like UMEditor",
   "main": "lib/editor.js",
   "files": [
@@ -29,18 +29,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liuhong1happy/react-umeditor.git"
+    "url": "git+https://github.com/hakupoint/react-umeditor.git"
   },
   "keywords": [
     "react",
-    "react-umeditor"
+    "react-umeditor-good"
   ],
-  "author": "Holly Liu",
+  "author": "hakupoint",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/liuhong1happy/react-umeditor/issues"
-  },
-  "homepage": "https://github.com/liuhong1happy/react-umeditor#readme",
   "dependencies": {
     "hmacsha1": "^1.0.0"
   }

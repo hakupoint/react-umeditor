@@ -147,6 +147,7 @@ class App extends Component {
           value={form_data.editor}
           defaultValue="<p>React Umeditor</p>"
           onChange={this.handleChange.bind(this)}
+          height={200}
           onInput={e => {
             console.dir(e.target.innerText);
           }}
