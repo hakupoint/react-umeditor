@@ -94,7 +94,7 @@ export default class EditorResize extends Component {
 				startPosition:startPosition
 			})
 		}
-		
+
 		window.removeEventListener("mouseup",this.handleMouseUp.bind(this));
 		window.removeEventListener("mousemove",this.handleMouseMove.bind(this));
 		window.addEventListener("mouseup",this.handleMouseUp.bind(this));
@@ -113,7 +113,7 @@ export default class EditorResize extends Component {
 		var dy = curPosition.y-startPosition.y;
 		var width = this.state.width;
 		var height = this.state.height;
-		
+
 		switch(this.state.direction){
 			case "nw-resize":
 				width -= dx;
@@ -135,12 +135,12 @@ export default class EditorResize extends Component {
 		startPosition = curPosition;
 		if(width<minWidth) width = minWidth;
 		if(height<minHeight) height = minHeight;
-		
+
 		if(this.state.target){
 			this.state.target.style.width = width+"px";
 			this.state.target.style.height = height+"px";
 		}
-		
+
 		this.setState({
 			startPosition:startPosition,
 			width:width,
@@ -160,7 +160,7 @@ export default class EditorResize extends Component {
 		var dy = curPosition.y-startPosition.y;
 		var width = this.state.width;
 		var height = this.state.height;
-		
+
 		switch(this.state.direction){
 			case "nw-resize":
 				width -= dx;
@@ -180,10 +180,10 @@ export default class EditorResize extends Component {
 				break;
 		}
 		startPosition = curPosition;
-		
+
 		if(width<minWidth) width = minWidth;
 		if(height<minHeight) height = minHeight;
-		
+
 		window.removeEventListener("mouseup",this.handleMouseUp.bind(this));
 		window.removeEventListener("mousemove",this.handleMouseMove.bind(this));
 		if(this.state.target){
@@ -196,7 +196,7 @@ export default class EditorResize extends Component {
 			width:width,
 			direction:null,
 		})
-		
+
 		EditorDOM.stopPropagation(e);
 	}
 	render(){
@@ -207,14 +207,7 @@ export default class EditorResize extends Component {
 			top:this.state.position.y,
 			display:this.state.show?"block":"none",
 			positoin:"absolute"
-		};		
-		return (<div className="editor-resize-container" ref="root">
-				<div className="editor-resize" style={style}>
-					<div className="block-resize nw-resize" onMouseDown={this.handleMouseDown.bind(this)} onMouseMove={this.handleMouseMove.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}></div>
-					<div className="block-resize ne-resize" onMouseDown={this.handleMouseDown.bind(this)} onMouseMove={this.handleMouseMove.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}></div>
-					<div className="block-resize sw-resize" onMouseDown={this.handleMouseDown.bind(this)} onMouseMove={this.handleMouseMove.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}></div>
-					<div className="block-resize se-resize" onMouseDown={this.handleMouseDown.bind(this)} onMouseMove={this.handleMouseMove.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}></div>
-				</div>
-			</div>)
+		};
+		return null
 	}
 }
