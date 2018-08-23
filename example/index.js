@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Editor from "../lib/editor";
 import LinkDialog from "./plugins/LinkDialog";
 import EditorSelection from "../lib/utils/EditorSelection";
-import EditorDOM from "../lib/utils/EditorDOM";
+import EditorDOM from "../lib/utils/EditorDom";
 
 class App extends Component {
   constructor(props) {

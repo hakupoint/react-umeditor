@@ -1,4 +1,4 @@
-var EditorDOM = require('../../lib/utils/EditorDOM.js');
+var EditorDOM = require('../../lib/utils/EditorDom.js');
 
 describe('Test Utils EditorDOM.js', function () {
 
@@ -22,7 +22,7 @@ describe('Test Utils EditorDOM.js', function () {
 		    expect(EditorDOM.isNullOfTextNode(node.args)).to.equal(node.expected[2]);
 	   })
   });
-	
+
   var Nodes = {
 	  span1: document.createElement('span'),
 	  span2: document.createElement('span'),
@@ -33,7 +33,7 @@ describe('Test Utils EditorDOM.js', function () {
 	  hr: document.createElement('hr'),
 	  br: document.createElement('br')
   }
-  
+
   Nodes.span1.innerHTML = "content";
   Nodes.div1.innerHTML = "content";
 
@@ -44,15 +44,15 @@ describe('Test Utils EditorDOM.js', function () {
 	    expect(EditorDOM.createNodeByTag('div','content').nodeType).to.equal(Nodes.div1.nodeType);
 		expect(EditorDOM.createNodeByTag('span','content').nodeType).to.equal(Nodes.span1.nodeType);
 	    expect(EditorDOM.createNodeByTag('div','content').nodeType).to.equal(Nodes.div1.nodeType);
-	  
+
 	    expect(EditorDOM.createTextNode('').nodeValue).to.equal(Nodes.text1.nodeValue);
 		expect(EditorDOM.createTextNode('content').nodeValue).to.equal(Nodes.text2.nodeValue);
 		expect(EditorDOM.createNodeByTag('span','content').nodeValue).to.equal(Nodes.span1.nodeValue);
 	    expect(EditorDOM.createNodeByTag('div','content').nodeValue).to.equal(Nodes.div1.nodeValue);
 		expect(EditorDOM.createNodeByTag('span','content').nodeValue).to.equal(Nodes.span1.nodeValue);
 	    expect(EditorDOM.createNodeByTag('div','content').nodeValue).to.equal(Nodes.div1.nodeValue);
-	  
-	  
+
+
 		expect(EditorDOM.createHR().nodeType).to.equal(Nodes.hr.nodeType);
 		expect(EditorDOM.createBR().nodeType).to.equal(Nodes.br.nodeType);
   });

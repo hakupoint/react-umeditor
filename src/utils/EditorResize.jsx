@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import EditorDOM from './EditorDOM';
+import EditorDOM from './EditorDom';
 
 // resize context
 var minWidth = 12;

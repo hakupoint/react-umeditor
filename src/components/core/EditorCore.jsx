@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 // utlils
 import EditorHistory from "../../utils/EditorHistory";
 import EditorSelection from "../../utils/EditorSelection";
-import EditorDOM from "../../utils/EditorDOM";
+import EditorDOM from "../../utils/EditorDom";
 import EditorTimer from "../../utils/EditorTimer";
 
 // dialog & dropdown

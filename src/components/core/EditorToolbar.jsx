@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import EditorIcon from './EditorIcon'
-import EditorDOM from '../../utils/EditorDOM'
-import { 
+import EditorDOM from '../../utils/EditorDom'
+import {
 	EditorIconTypes
 } from '../../constants/EditorConstants'
 import EditorHistory from '../../utils/EditorHistory'
@@ -31,7 +31,7 @@ export default class EditorToolbar extends React.Component{
 		if(editorState.icons["fontsize"]) editorState.icons["fontsize"].name = this.getNameByValue(this.props.fontsize,editorState.icons["fontsize"].value);
 		if(editorState.icons["paragraph"]) editorState.icons["paragraph"].name = this.getNameByValue(this.props.paragraph,editorState.icons["paragraph"].value);
 		if(editorState.icons["fontfamily"]) editorState.icons["fontfamily"].name = this.getNameByValue(this.props.fontfamily,editorState.icons["fontfamily"].value);
-		
+
 		var icons = this.props.icons;
 		var _icons = icons.join(" ").replace(/\|/gm,"separator").split(" ");
 		_icons = _icons.filter(function(ico){ return ico!=""});

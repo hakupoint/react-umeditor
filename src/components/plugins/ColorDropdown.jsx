@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropdown from '../base/Dropdown'
 import { ColorTypes } from '../../constants/EditorConstants'
-import EditorDOM from '../../utils/EditorDOM'
+import EditorDOM from '../../utils/EditorDom'
 
 export default class ColorDropdown extends React.Component{
 	constructor(props){
@@ -63,14 +63,14 @@ export default class ColorDropdown extends React.Component{
 						}
 						<tr className="title-row" key={"title-row2"}>
 							<td colSpan={10}>标准颜色</td>
-						</tr>	
+						</tr>
 						<tr className="last-row" key={"last-row"}>
 						{
 							ColorTypes.standardColors.map(function(color,pos){
 									return (<td key={pos}>
 											<a className="color-anchor"  data-color={color} style={{"backgroundColor":color}} onClick={handleSelectColor}></a>
 									</td>)
-							})		  
+							})
 						}
 						</tr>
 						</tbody>
