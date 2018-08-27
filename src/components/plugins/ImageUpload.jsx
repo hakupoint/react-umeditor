@@ -25,6 +25,10 @@ export default class ImageUpload extends Component{
 			onLoad:function(){ _self.beforeUploading(files, fileIndex) },
 			onSuccess:function(res){
 				const url = _self.props.filter(res);
+				if(!url) {
+					_self.afterUploading();
+					return ;
+				}
 				_self.updateImage(url);
 
 				setTimeout(function(){
@@ -49,7 +53,7 @@ export default class ImageUpload extends Component{
   beforeUploading = (files, fileIndex) => {
 		let mask = ReactDOM.findDOMNode(this.refs.mask);
 		mask.style.display = "block";
-		mask.innerHTML = `${fileIndex + 1}/${files.length} Uploading...`;
+		mask.innerHTML = `${fileIndex + 1}/${files.length} 上传图片中...`;
   }
 
   afterUploading = () => {
@@ -67,7 +71,7 @@ export default class ImageUpload extends Component{
 			mask.style.display = "none";
 		},200)
 	}
-	
+
   updateImage = (image) => {
 		let images = this.state.images;
     images.push({
@@ -187,7 +191,7 @@ export default class ImageUpload extends Component{
 							</form>
 						</div>
 						<div className="image-mask" ref="mask">
-								{"Loading...."}
+								{"图片上传中...."}
 						</div>
 					</div>)
 	}

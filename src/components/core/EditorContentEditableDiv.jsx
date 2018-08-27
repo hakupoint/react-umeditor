@@ -117,7 +117,7 @@ export default class EditorContentEditableDiv extends React.Component{
 					}}
 					contentEditable={!this.props.readonly}
 					style={{
-						height: this.props.height
+						minHeight: this.props.height,
 					}}
 					dangerouslySetInnerHTML={{__html:this.state.content}}/>
 			</div>)

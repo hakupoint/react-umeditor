@@ -14,14 +14,14 @@ export default class LinkDialog extends Component {
       handle: function() {}
     }
 	}
-	
+
   open = (handle)=> {
     this.setState({
       handle: handle
     })
     this.refs.modal.open();
 	}
-	
+
   close = ()=> {
     if (this.refs.modal) {
       this.refs.modal.close();
@@ -44,7 +44,7 @@ export default class LinkDialog extends Component {
 		}
 		this.close();
 	}
-	
+
   toggle = (handle)=> {
     this.setState({
       handle: handle
@@ -96,10 +96,10 @@ export default class LinkDialog extends Component {
 							<td><input value={link.title} className="edui-link-txt" id="edui-link-Jtitle" type="text" onChange={(evt)=> this.updateLink('title', evt.target.value)} /></td>
 						</tr>
 						<tr>
-							<td colspan="2"><label htmlFor="target">是否在新窗口打开：</label><input id="edui-link-Jtarget" type="checkbox" checked={link.target==='__blank'} onChange={(evt)=> this.updateLink('target', evt.target.checked ? "__blank":"")} /></td>
+							<td colSpan="2"><label htmlFor="target">是否在新窗口打开：</label><input id="edui-link-Jtarget" type="checkbox" checked={link.target==='__blank'} onChange={(evt)=> this.updateLink('target', evt.target.checked ? "__blank":"")} /></td>
 						</tr>
 						</tbody>
-					</table>   
+					</table>
 				</Dialog>
 			)
 		}
