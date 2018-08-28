@@ -183,7 +183,7 @@ export default class ImageUpload extends Component{
 								</form>
 							</div>
 						</div>
-						<div className="image-dragTip" style={ hasImages?hideStyle:showStyle }>支持图片拖拽上传</div>
+						<div className="image-dragTip" style={ hasImages?hideStyle:showStyle }>点击上传图片<br/>5M以下jpg、png</div>
 						<div className="image-upload1" style={ hasImages?hideStyle:showStyle }>
 							<span className="image-icon"></span>
 							<form className="image-form" method="post" encType="multipart/form-data" target="up" action={action} >
