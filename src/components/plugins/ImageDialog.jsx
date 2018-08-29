@@ -50,7 +50,7 @@ export default class ImageDialog extends Component {
         let str = "<img src='" + src + "'/>";
         strImgs += str;
       }
-      this.state.handle(strImgs);
+      this.state.handle(e, strImgs);
     }
     this.close();
   }
@@ -84,7 +84,7 @@ export default class ImageDialog extends Component {
             name={uploader.name}
             url={uploader.url}
             data={uploader.data}
-            uploadImageCallback={this.props.uploadImageCallback} 
+            uploadImageCallback={this.props.uploadImageCallback}
           />
         )
       },

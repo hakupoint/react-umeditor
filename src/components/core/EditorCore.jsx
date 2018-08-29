@@ -635,7 +635,10 @@ export default class EditorCore extends Component {
 
   editorImage = (editarea, root) => {
     EditorSelection.storeRange();
-    this.refs.image.toggle(html => {
+    this.refs.image.toggle((e,html) => {
+      if(!e) {
+        return
+      }
       editarea.focus();
       EditorSelection.restoreRange();
       if (html && html.length > 0) {
