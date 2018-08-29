@@ -31,6 +31,12 @@ export default class ImageDialog extends Component {
         this.state.handle();
       }
       this.refs.image.clearImages();
+      this.setState({
+        images: [
+          [],
+          []
+        ]
+      })
     }
   }
   toggle(handle) {
