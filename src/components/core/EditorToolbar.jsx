@@ -9,6 +9,35 @@ import {
 import EditorHistory from '../../utils/EditorHistory'
 
 export default class EditorToolbar extends React.Component{
+	constructor() {
+		super()
+		this.state = {
+			style: {},
+			top: 0,
+		}
+	}
+	componentDidMount() {
+		// const self = this
+		// this.setState({top:this.refs._e.getBoundingClientRect().top})
+		// if(typeof window !== "undefined"){
+		// 	window.onscroll = function(e){
+		// 		var left = self.refs._e.getBoundingClientRect().left
+		// 		if(-document.documentElement.getBoundingClientRect().top > self.state.top ) {
+		// 			self.setState({
+		// 				style: {
+		// 					"position": "fixed",
+		// 					"top": "0",
+		// 					"left": left
+		// 				}
+		// 			})
+		// 		}else {
+		// 			self.setState({
+		// 				style: {}
+		// 			})
+		// 		}
+		// 	}
+		// }
+	}
 	handleIconClick = (e,state) => {
 		if(this.props.onIconClick){
 			this.props.onIconClick(e,state)
@@ -53,7 +82,7 @@ export default class EditorToolbar extends React.Component{
 	}
 	render(){
 		var icons = this.getIcons();
-		return (<div className="editor-toolbar" onMouseDown={EditorDOM.stopPropagation} onClick={EditorDOM.stopPropagation}>
+		return (<div className="editor-toolbar" onMouseDown={EditorDOM.stopPropagation} onClick={EditorDOM.stopPropagation} style={this.props.style} ref="_e">
 				{
 					icons.map(function(icon,pos){
 						var props = icon;

@@ -47,6 +47,8 @@ export default class EditorCore extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      top: 0,
+      height: 0,
       lastKeyCode: null,
       maxInputCount: 10,
       editorState: {
@@ -90,6 +92,36 @@ export default class EditorCore extends Component {
   componentDidMount() {
     EditorHistory.clear();
     this.setContent(this.state.value);
+    if (this.refs.toolbar) {
+      this.setState({
+        top: this.refs.toolbar.refs._e.getBoundingClientRect().top,
+        height:
+          this.refs.editarea.refs.edit.offsetHeight
+      });
+      const self = this;
+      if (typeof window !== "undefined") {
+        window.onscroll = function(e) {
+          console.log();
+          var left = self.refs.toolbar.refs._e.getBoundingClientRect().left;
+          if (
+            -document.documentElement.getBoundingClientRect().top >
+            self.state.top &&  -document.documentElement.getBoundingClientRect().top < self.state.height
+          ) {
+            self.setState({
+              style: {
+                position: "fixed",
+                top: "0",
+                left: left
+              }
+            });
+          } else {
+            self.setState({
+              style: {}
+            });
+          }
+        };
+      }
+    }
   }
 
   componentDidUpdate() {
@@ -107,7 +139,11 @@ export default class EditorCore extends Component {
         break;
     }
   }
-  componentWillUnmont() {}
+  componentWillUnmount() {
+    if (typeof window !== "undefined") {
+      window.onscroll = "";
+    }
+  }
 
   // event handler
   handleKeyDown = evt => {
@@ -119,7 +155,6 @@ export default class EditorCore extends Component {
       target.className.indexOf("editor-contenteditable-div") != -1
     ) {
       let keyCode = evt.keyCode || evt.which;
-      console.log("kkkk", keyCode);
       if (!evt.ctrlKey && !evt.metaKey && !evt.shiftKey && !evt.altKey) {
         if (EditorHistory.getCommandStack().length == 0) {
           this.autoSave();
@@ -272,6 +307,7 @@ export default class EditorCore extends Component {
     let nextSibling = null;
     let childSum = null;
     for (let i = 0; i < spanNodes.length; i++) {
+      debugger;
       switch (spanNodes[i].className) {
         case "font-border":
           spanNode = spanNodes[i];
@@ -635,9 +671,9 @@ export default class EditorCore extends Component {
 
   editorImage = (editarea, root) => {
     EditorSelection.storeRange();
-    this.refs.image.toggle((e,html) => {
-      if(!e) {
-        return
+    this.refs.image.toggle((e, html) => {
+      if (!e) {
+        return;
       }
       editarea.focus();
       EditorSelection.restoreRange();
@@ -1088,6 +1124,7 @@ export default class EditorCore extends Component {
             paragraph={this.props.paragraph}
             fontsize={this.props.fontSize}
             fontfamily={this.props.fontFamily}
+            style={this.state.style}
           >
             <ImageDialog
               hidden={_icons.indexOf("image") == -1}

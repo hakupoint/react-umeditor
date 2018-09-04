@@ -152,6 +152,7 @@ class App extends Component {
             console.dir(e.target.innerText);
           }}
         />
+        <img src="https://wx1.sinaimg.cn/mw690/739a6626gy1fuwfo8dr41j20ad1v0wj4.jpg"/>
       </div>
     );
   }
