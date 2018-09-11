@@ -94,6 +94,7 @@ Editor.propTypes = {
   icons: PropTypes.arrayOf(PropTypes.string),
   value: PropTypes.string,
   defaultValue: PropTypes.string,
+  Editor: PropTypes.func
 }
 
 Editor.defaultProps = {

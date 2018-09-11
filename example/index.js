@@ -148,7 +148,7 @@ class App extends Component {
           defaultValue="<p>React Umeditor</p>"
           onChange={this.handleChange.bind(this)}
           height={200}
-          onInput={e => {
+          onst={e => {
             console.dir(e.target.innerText);
           }}
         />
